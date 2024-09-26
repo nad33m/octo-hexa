@@ -1,0 +1,40 @@
+{% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<h2>{{ title }}.</h2>
+<!-- Remove {{ message }} if not defined in context -->
+<p>Use this area to provide CS Teacher Information.</p>
+
+<div class="card text-center">
+    <div class="card-header">
+        <h3> {{ object.teacher_name }} </h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">  {{ object.teacher_name }} </h5>
+      <p class="card-text"> {{ object.scode.sname }} </p>
+      <a href="#" class="btn btn-primary"> {{object.qualification}} </a>
+    </div>
+    <div class="card-footer text-muted">
+        {{object.profq}}
+    </div>
+  </div>
+
+
+<div class="card">
+    <div class="card-header">
+    
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ object.scode.sname }}</h5>
+      <p class="card-text"></p>
+      <p class="card-text"></p>
+     
+    </div>
+  </div>
+{% endblock %}
+
+
+  
+

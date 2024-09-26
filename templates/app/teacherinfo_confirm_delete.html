@@ -1,0 +1,23 @@
+{% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<!-- Remove {{ message }} if not defined in context -->
+<p>Use this area to provide additional information.</p>
+<h2>{{ title }}</h2>
+
+
+<form method="post">{% csrf_token %}
+     
+ 
+ 
+    <p>Are you sure you want to delete "{{ object.teacher_name }}"?</p>
+     
+     
+     
+        <input type="submit" value="Confirm">
+    </form>
+
+    {% endblock %}

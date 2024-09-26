@@ -1,0 +1,50 @@
+{% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<h2>{{ title }}.</h2>
+<!-- Remove {{ message }} if not defined in context -->
+<p>Use this area to provide CS Teacher Information.</p>
+<h2>Total {{ total_teachers }} teachers </h2>
+<table class="table table-stripped">
+    <tr>
+        <thead>
+            <th>Teacher Name</th>
+            <th>CNIC</th>
+            <th>School Name  </th>
+            <th>District</th>
+            <th>Edit menu</th>
+            
+        </thead>    
+    </tr>
+    <tbody>
+                {% for teacher in teachers  %}
+                <tr>
+                    <td><a href="{% url 'teacher-detail-page' teacher.cnic %}" class="btn btn-sm">{{ teacher.teacher_name }} </a> </td>
+                    <td> {{ teacher.cnic }}</td>
+                    <td> {{ teacher.scode.sname }} </td>
+                    <td> {{ teacher.scode.did }} </td>
+                    <td> <a href="" class="btn btn-primary">  click to edit </a> 
+                         <a href="{% url 'delete-teacher' teacher.cnic %}" class="btn btn-danger btn-sm" id="delete-btn">  Delete </a> 
+                        
+                        
+                    </td>
+                </tr>              
+            
+                {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+  
+
+
+<script>
+
+$(document).on('click', '#delete-btn', function(){
+    return confirm('Are you sure you want to delete this?');
+})
+</script>
